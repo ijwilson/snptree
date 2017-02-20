@@ -1,0 +1,10 @@
+Package: snptree
+Type: Package
+Title: Creates lexical trees.
+Version: 0.1
+Date: 2013-04-25
+Author: Ian Wilson
+Maintainer: Ian Wilson <Ian.Wilson@ncl.ac.uk>
+Description: Creates and tests lexical trees for differences in frequency of words (that represent haplotypes) between cases and controls.
+License: GPL-2
+Depends:  ape
