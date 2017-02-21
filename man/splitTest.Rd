@@ -44,11 +44,15 @@ splitTest(d, cases, positions, maxk = 4, reps = 1000)
   fixed point or sequentially along the haplotypes.
 }
 \examples{
+library(snptree)
+data(snptreeExample)
+s <- splitTest(haps, which(sample=="Case"), reps=1000, pickStat="Sevon")
+s <- splitTest(haps, which(sample=="Case"), reps=1000, pickStat="A")
+s <- splitTest(haps, which(sample=="Case"), reps=10000, pickStat="Gtest")
 
-s <- splitTest(haps,which(sample=="Case"),reps=1000)
 print(s$p.value)
-hapstr <- apply(haps,1,paste,collapse="")
-chisq.test(table(hapstr,sample),simulate=TRUE)
+hapstr <- apply(haps, 1, paste, collapse="")
+chisq.test(table(hapstr, sample), simulate=TRUE)
 
 }
 \keyword{ htest }

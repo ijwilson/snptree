@@ -1,5 +1,5 @@
 
-"Split" <- function(d,cases,SplitPositions,positions,quiet=TRUE)
+"Split" <- function(d, cases, SplitPositions, positions, quiet=TRUE)
 {
   if (missing(SplitPositions))  SplitPositions <- 1:ncol(d)
   if (missing(positions)) positions <- 1:ncol(d)
@@ -53,7 +53,7 @@
   b
 }
 
-"splitTest" <- function(d,cases,positions, maxk=4,reps=1000,pickStat="Sevon")
+"splitTest" <- function(d, cases, positions, maxk=4, reps=1000, pickStat="Sevon")
   {
     if (missing(positions))
       positions <- 1:ncol(d)

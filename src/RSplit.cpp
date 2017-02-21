@@ -2,9 +2,9 @@
 #include <Rmath.h>
 #include <iostream>
 #include <stdexcept>
-#include "splitter.H"
-#include "binode.H"
-#include "gsl_rand.H"
+#include "splitter.h"
+#include "binode.h"
+#include "gsl_rand.h"
 #include "tnt/tnt.h"
 
 
@@ -33,7 +33,7 @@ extern "C" {
    * labels:        The labels at the leaves (in order
   */
   void GetSplit( int *data, int *samplesize, int *nSNP, int *positions, int *npos, int *cases
-		   , int *ncases, int *edge, int *ccleaf, int *ccnode,int *len,int *comblabels
+		   , int *ncases, int *edge, int *ccleaf, int *ccnode,int *len, int *comblabels
 		 , int *nodepos) 
   {  
     TNT::Array2D<int> d(*samplesize,*nSNP,data);
@@ -72,7 +72,7 @@ extern "C" {
   /** C code to perform the bulk of the test work                             */
   void splitTest(int *data, int *samplesize, int *nSNP, int *positions, int *npos, int *cases
                  , int *ncases, int *reps, int *maxk, double *teststat, double *randteststats
-                 ,int *nterm,char **statPick) {
+                 ,int *nterm, char **statPick) {
     
     TNT::Array2D<int> d(*samplesize,*nSNP,data);
     splitter<int> s(d,d.dim1(),d.dim2());
@@ -80,7 +80,7 @@ extern "C" {
     
     std::vector<int> caseVec(cases,cases+*ncases);
     
-    std::vector<double> stat=s.getStat(caseVec,*maxk,*statPick);   // use default test statistic
+    std::vector<double> stat=s.getStat(caseVec, *maxk, *statPick);   // use default test statistic
     for (size_t jj=0;jj< *maxk;jj++) teststat[jj] = stat[jj];
 
     rng r;

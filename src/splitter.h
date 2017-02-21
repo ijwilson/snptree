@@ -6,9 +6,9 @@
 #include <list>
 #include <algorithm>
 #include <stdexcept>
-#include "binode.H"
-#include "testStats.H"
-#include "util.H"
+#include "binode.h"
+#include "testStats.h"
+#include "util.h"
 
 using std::list;
 using std::ostream;
