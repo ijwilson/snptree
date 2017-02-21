@@ -34,21 +34,48 @@ splitTest(d, cases, positions, maxk = 4, reps = 1000)
   \item{randTestStat}{The randomised Test Statistics}
   \item{p.value}{The p value (from simulation) from 1 to maxk}
   \item{leaves}{The number of leaves - the number of multi-locus haplotypes}
+  \item{pickStat}{The Statistic used to test significance in the randomisation test}
 }
 \references{\url{http://www.staff.ncl.ac.uk/i.j.wilson} }
 \author{ Ian Wilson \email{Ian.Wilson@ncl.ac.uk}}
 \note{
   The test statistic and p-value will depend on the order in
-  which the positions ar eadded to the tree.  In this case it is only
+  which the positions are added to the tree.  In this case it is only
   sesible to add them in a set order either as distance away from a
-  fixed point or sequentially along the haplotypes.
+  fixed point or sequentially along the haplotypes.  Test statistics available are
+  
+S The Sevon test statistic
+
+Q the squared Sevon statistic
+
+A the absolute Sevon test statistic
+
+G a G-test statistic
+
+P the exact binomial tail probability
+
+N a normalised exact binomial tail probability (G test statistic)
+
+T The Tree test statistic
+
+C The ’Cherries’ test statistic
+
+H The ’Height’ test statistic
+  
+  
+  
 }
 \examples{
 library(snptree)
 data(snptreeExample)
 s <- splitTest(haps, which(sample=="Case"), reps=1000, pickStat="Sevon")
-s <- splitTest(haps, which(sample=="Case"), reps=1000, pickStat="A")
+print(s$p.value)
+
+s <- splitTest(haps, which(sample=="Case"), reps=1000, pickStat="AbsSevon")
+print(s$p.value)
+
 s <- splitTest(haps, which(sample=="Case"), reps=10000, pickStat="Gtest")
+print(s$p.value)
 
 print(s$p.value)
 hapstr <- apply(haps, 1, paste, collapse="")
