@@ -30,7 +30,7 @@ extern "C" {
    * ccleaf:        Number of cases and controls at the leaves
    * ccnode:        Number of cases and control at the nodes
    * len:           The number of leaves
-   * labels:        The labels at the leaves (in order
+   * labels:        The labels at the leaves (in order)
   */
   void GetSplit( int *data, int *samplesize, int *nSNP, int *positions, int *npos, int *cases
 		   , int *ncases, int *edge, int *ccleaf, int *ccnode,int *len, int *comblabels
